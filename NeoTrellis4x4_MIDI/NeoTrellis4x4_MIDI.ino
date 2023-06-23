@@ -39,7 +39,7 @@ uint32_t colorTable_1[16] ={
 TrellisCallback blink(keyEvent evt){
   // Check is the pad pressed?
   if (evt.bit.EDGE == SEESAW_KEYPAD_EDGE_RISING) {
-    trellis.pixels.setPixelColor(evt.bit.NUM, 0xffffff); //on rising
+    trellis.pixels.setPixelColor(evt.bit.NUM, 0x00ff00); //on rising
     MIDI.sendNoteOn(noteTable[evt.bit.NUM], 127, 1);
   } 
   else if (evt.bit.EDGE == SEESAW_KEYPAD_EDGE_FALLING) {
@@ -144,7 +144,7 @@ void handleNoteOn(byte channel, byte pitch, byte velocity)
 {
     int v = valueIndex(pitch);
     if (v != -1){
-    trellis.pixels.setPixelColor(v,0xffffff);
+    trellis.pixels.setPixelColor(v,0x00ff00);
     trellis.pixels.show();
 }
     }
